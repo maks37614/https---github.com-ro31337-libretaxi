@@ -1,42 +1,78 @@
-Welcome to the AWS CodeStar sample web application
-==================================================
+<div>
+<a href="https://travis-ci.org/ro31337/libretaxi/">
+<img src="https://api.travis-ci.org/ro31337/libretaxi.svg?branch=master"></img>
+</a>
+</div>
 
-This sample code helps get you started with a simple Node.js web service deployed by AWS CloudFormation to AWS Lambda and Amazon API Gateway.
+[![Patreon](https://img.shields.io/badge/back_on-patreon-red.svg)](https://www.patreon.com/libretaxi)
 
-What's Here
------------
+## LibreTaxi: open source alternative for Uber/Lyft with the focus on social change, freedom, delivering taxi service through technology to all people around the world
 
-This sample includes:
+LibreTaxi makes taxis affordable again by completely removing all layers in between. Passengers pay with cash and get connected with drivers directly, where LibreTaxi is a thin layer allowing to negotiate the price before order is confirmed. No registration/approval is required. Less regulations.
 
-* README.md - this file
-* buildspec.yml - this file is used by AWS CodeBuild to package your
-  application for deployment to AWS Lambda
-* index.js - this file contains the sample Node.js code for the web service
-* template.yml - this file contains the AWS Serverless Application Model (AWS SAM) used
-  by AWS CloudFormation to deploy your application to AWS Lambda and Amazon API
-  Gateway.
+* Available at [@libretaxi_bot](https://telegram.me/libretaxi_bot)
+* Also see [LibreTaxi FAQ](doc/FAQ.md)
 
+## Implementation details
 
-What Do I Do Next?
-------------------
+Technical stack:
 
-If you have checked out a local copy of your repository you can start making
-changes to the sample code.  We suggest making a small change to index.js first,
-so you can see how changes pushed to your project's repository are automatically
-picked up by your project pipeline and deployed to AWS Lambda and Amazon API Gateway.
-(You can watch the pipeline progress on your AWS CodeStar project dashboard.)
-Once you've seen how that works, start developing your own code, and have fun!
+* Node.js, JavaScript (ES6)
+* [Firebase](https://firebase.google.com/) as data storage
+* Redis as storage for [kue](https://github.com/Automattic/kue)
+* [Telegram](https://telegram.org) as the main transport
+* CLI as backup and PoC transport
 
-Learn more about AWS Serverless Application Model (AWS SAM) and how it works here:
-https://github.com/awslabs/serverless-application-model/blob/master/HOWTO.md
+Translatable via locale file. Currently has support of [20+ languages](src/validations/supported-locales.js).
 
-AWS Lambda Developer Guide:
-http://docs.aws.amazon.com/lambda/latest/dg/deploying-lambda-apps.html
+Server support: macOS, Linux (Windows should also work).
 
-Learn more about AWS CodeStar by reading the user guide, and post questions and
-comments about AWS CodeStar on our forum.
+Client (Telegram) support: iOS, Android, macOS desktop client, web (can also work for Windows phones - not tested). Note that Telegram desktop clients for Linux and Windows are currently not supported because of lack location functionality. However, web client can be used on these OS along with any modern browser.
 
-AWS CodeStar User Guide:
-http://docs.aws.amazon.com/codestar/latest/userguide/welcome.html
+## Why Telegram?
 
-AWS CodeStar Forum: https://forums.aws.amazon.com/forum.jspa?forumID=248
+* Available for all popular platforms
+* Has rich bot API
+* Fast, reliable, and secure
+* Works perfect with slow/poor Internet connection
+* Staff and support are developer-friendly
+* More likely to fight for LibreTaxi rights when it comes to regulations (Germany/EU jurisdiction)
+
+## Technical roadmap (unordered)
+
+* Make it safer for passengers and drivers
+* Add Bitcoin integration
+* Add drivers/passengers rating
+* Add configuration based on zones and regions
+* Add more vehicle types
+* Make it easier to use and safer for moms/dads and children
+* Make it easier to use for people with disabilities
+* Add more translations
+* Add integration (click) tests (and infrastructure) for Telegram platform
+* Add delayed rides
+* Refactoring, refactoring, refactoring
+
+## Development guidelines
+
+* [Installing Node.js](doc/NODEJS.md)
+* [Getting started](doc/GETTING-STARTED.md)
+* [Redis](doc/REDIS.md)
+* [Esdoc](doc/ESDOC.md)
+* [Contributing](doc/CONTRIBUTING.md)
+* [Add translation](doc/TRANSLATE.md)
+* [Debugging](doc/DEBUGGING.md)
+
+## Linux tweaks
+
+This package is using unicode emojis. [Click here](https://github.com/eosrei/emojione-color-font#install-on-ubuntu-linux) to install them. Unfortunately, on Linux they are in one color in Terminal and in Atom editor. Update this doc if you were able to make them in color in Terminal and/or Atom editor.
+
+## Support LibreTaxi
+
+Here is how you can help:
+
+* Donate from [LibreTaxi.org](http://libretaxi.org) - scroll down for link.
+* BTC: `1HoUX4UtYPZUUQekAmyYpr42Z9dV9kLke3`
+* ETC: `0x01645791d038Ff07EcB95929448bd513D9C73cc4`
+* LTC: `LajxywwPMtL5P2s5oj7dGmcgmVhEc9R7gF`
+
+Or just spread the word and contribute to the project!
